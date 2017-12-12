@@ -1,0 +1,27 @@
+In implementarea temei am pornit de la scheletul de cod
+al laboratorului de HTTP, la care am adaugat functionalitatile de
+download implicit si de download la nivel de fisiere media ale paginii web 
+specificate in linia de comanda, optiunea -r nefiind implementata.
+
+Protocolul folosit de mine pentru trimiterea comenzii GET este HTTP/1.0.
+
+Descarcarea paginii web consta in determinarea adresei IP a serverului,
+prin intermediul unei structuri hostent , a instructiunii
+gethostbyname(nume_server), urmata de legarea la o structura sockaddr_in
+a proprietatilor serverului si de determinarea arborelui de directoare
+si a numelui paginii rezultate din trimiterea cererii catre server.
+
+In cazul activarii optiunii -o, in fisierul de erori se vor scrie mesaje indicand
+cauzele urmatoarelor coduri ale raspunsului serverului : 300, 301, 305, 308,
+400-407.
+
+In cazul activarii optiunii -e, fisierul specificat va fi descarcat ca si in mod implicit,
+acelasi tip de descarcare fiind folosit si pentru fisierele media care corespund 
+amplasarii specificate in cerinta temei.
+
+ 
+Dupa descarcarea paginii date ca argument in linia de comanda, datorita inchiderii 
+conexiunii cu serverul dupa prima comanda GET, a fost necesar sa creez un nou socket
+si sa reactualizez proprietatile structurii sockaddr_in corespunzatoare serverului.
+Acelasi set de instructiuni l-am efectuat si pentru descarcarea fisierlor media.
+Mentionez ca au existat cazuri in care aceasta nu a functionat in totalitate.
