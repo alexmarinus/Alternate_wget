@@ -24,4 +24,3 @@ Dupa descarcarea paginii date ca argument in linia de comanda, datorita inchider
 conexiunii cu serverul dupa prima comanda GET, a fost necesar sa creez un nou socket
 si sa reactualizez proprietatile structurii sockaddr_in corespunzatoare serverului.
 Acelasi set de instructiuni l-am efectuat si pentru descarcarea fisierlor media.
-Mentionez ca au existat cazuri in care aceasta nu a functionat in totalitate.
